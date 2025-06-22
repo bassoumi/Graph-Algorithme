@@ -1,22 +1,28 @@
-graph = {
-  '1': ['2', '5'],
-  '2': ['1', '3', '5'],
-  '3': ['2', '4'],
-  '4': ['3', '5', '6'],
-  '5': ['1', '2', '4'],
-  '6': ['4']
-}
-
-def dfs(graph,start,visited=None):
- if visited is None:
-  visited = []
- if start not in visited:
-   visited.append(start)
-
- unvisited = [st for st in graph[start] if start not in visited]
-
- for node in unvisited:
-  dfs(graph,node,visited)
- return visited
-
-print(dfs(graph,'1')) 
+graph = { '1' : ['2' , '5'] ,
+          '2' : ['1' , '3', '5'] ,
+          '3' : ['2' , '4'] ,
+          '4' : ['3' , '5', '6'] ,
+          '5' : ['1' , '2', '4'] ,
+          '6' : ['4']
+      }
+   
+ 
+def ParcoursProfRec ( graph , node , visited = None ):
+ 
+    # Initialiser les sommets visités
+    if visited is None :
+       visited = []
+   
+    # Marquer le sommet comme visiter
+    if node not in visited :
+      visited.append(node)
+ 
+    # Définir les voisin de sommetou bien node
+    unvisited = [ n for n in graph[node] if n not in visited ]
+   
+    # Parcourir les voisins de sommet
+    for node in unvisited :
+       ParcoursProfRec ( graph , node , visited ) # la fonction récursif
+    return visited
+ 
+print(ParcoursProfRec(graph, '3'))

@@ -5,7 +5,7 @@ const shortPath = (edges,nodeA,nodeB)=>{
     const [ current , distance ]= queue.shift();
     if (current === nodeB) return distance;
     for (let neighbor of graph[current]){
-        queue.push(neighbor);
+        queue.push([neighbor, distance + 1]);
     }
 }
 }

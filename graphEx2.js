@@ -1,3 +1,8 @@
+
+
+// This function checks if there is a path between two nodes in an undirected graph
+// using depth-first search (DFS) algorithm. It takes an array of edges and two nodes as input and returns true if a path exists, otherwise false.
+// The graph is represented as an adjacency list, which is built from the edges array.
 const undirectedPath = (edges, nodeA, nodeB) => {
     const graph = buildGraph(edges);
     return hasPath(graph, nodeA, nodeB, new Set());
